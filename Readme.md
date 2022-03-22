@@ -3,6 +3,6 @@
 - Entender o que é JSON (OK)
 - Entender para que serve a API RESTFULL (OK)
 - Criar uma rota e entender o que diabo é rota (OK)
-- Salvar o código no git
+- Salvar o código no git (OK)
 
-* Plus -> Criar o live reload do nosso código
+* Plus -> Criar o live reload do nosso código (OK)
