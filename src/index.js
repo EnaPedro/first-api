@@ -11,9 +11,9 @@ app.use(express.json());
  */
 
 /**
- * QUERY PARAMS
- * ROUTE PARAMS
- * REQUEST BODY
+ * QUERY PARAMS (Filtrar)
+ * ROUTE PARAMS (Rotas)
+ * REQUEST BODY (Preencher/inserir)
  */
 
 app.get('/users', (request, response) => {
@@ -86,6 +86,18 @@ app.post('/products/:id/payments', (request, response) => {
   const valorComAcrescimo = produto.preco + valorAcrescimo;
   
   return response.status(201).json({ produto, valorAcrescimo, percentualAcrescimo, valorComAcrescimo });
+});
+
+app.post('/products', (request, response) => {
+  const id = Math.round(Math.random() * 10000).toFixed(0);
+  const product = {
+    id,
+    nome: request.body.nome,
+    preco: request.body.preco,
+    categoria: request.body.categoria,
+    descricao: request.body.descricao
+  };
+  return response.status(201).json(product);
 });
 
 app.listen(3333, () => {
