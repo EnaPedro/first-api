@@ -1,4 +1,6 @@
+const { response } = require('express');
 const express = require('express');
+const { type } = require('express/lib/response');
 const app = express();
 
 app.use(express.json());
@@ -100,6 +102,22 @@ app.post('/products', (request, response) => {
   return response.status(201).json(product);
 });
 
+app.post ('/cdusers', (request, response) => {
+  const id = Math.round(Math.random() * 8000).toFixed(0);
+  const users = {
+    id,
+    nome: request.body.nome,
+    cpf: request.body.cpf,
+    nascimento: request.body.nascimento,
+  }
+  if(String(request.body.cpf).length == 11){
+    return response.status (201).json(users)
+  }
+  else {
+    return response.status(400).json('CPF INVÁLIDO');
+ }
+})
+
 app.listen(3333, () => {
   console.log("Server is running on port 3333");
-});
+})
